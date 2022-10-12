@@ -18,14 +18,31 @@ public class GuiInterface {
     }
 
     public Car chooseCarInGui() {
-        String desiredCar = JOptionPane.showInputDialog("Car:");
-        return carStore.lookup(desiredCar);
+        Object[] carChoice = carStore.carFromStore();
+        String chosenCar = (String) JOptionPane.showInputDialog(
+                null,
+                "Выберите автомобиль:",
+                "Автомобиль",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                carChoice,
+                "");
+        return carStore.lookup(chosenCar);
     }
 
     public Track chooseTrackInGui() {
-        String desiredTrack = JOptionPane.showInputDialog("Track:");
-        return trackStore.lookup(desiredTrack);
+        Object[] trackChoice = trackStore.trackFromStore();
+        String chosenTrack = (String) JOptionPane.showInputDialog(
+                null,
+                "Выберите трассу:",
+                "Трасса",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                trackChoice,
+                "");
+        return trackStore.lookup(chosenTrack);
     }
+
 
     public void showResult(Car car, Track track) {
         if (car.isPitstopNeeded(track)) {
