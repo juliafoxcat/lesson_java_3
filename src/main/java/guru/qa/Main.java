@@ -4,17 +4,14 @@ import guru.qa.repo.CarStore;
 import guru.qa.repo.TrackStore;
 import guru.qa.service.ConsoleInterface;
 import guru.qa.service.GuiInterface;
+import guru.qa.service.Interface;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-//        new Application(new GuiInterface(
-//                new CarStore(),
-//                new TrackStore()
-//        )).run();
-
-        new Application(new ConsoleInterface(
-                new CarStore(),
-                new TrackStore()
-        )).runConsoleInterface();
+        Application result = Application.newInstance();
+        result.runInterface();
     }
 }
+

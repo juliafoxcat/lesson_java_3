@@ -7,7 +7,7 @@ import guru.qa.repo.TrackStore;
 
 import javax.swing.*;
 
-public class GuiInterface {
+public class GuiInterface implements Interface{
 
     private final CarStore carStore;
     private final TrackStore trackStore;
@@ -17,7 +17,7 @@ public class GuiInterface {
         this.trackStore = trackStore;
     }
 
-    public Car chooseCarInGui() {
+    public Car choiceCar() {
         Object[] carChoice = carStore.carFromStore();
         String chosenCar = (String) JOptionPane.showInputDialog(
                 null,
@@ -30,7 +30,7 @@ public class GuiInterface {
         return carStore.lookup(chosenCar);
     }
 
-    public Track chooseTrackInGui() {
+    public Track choiceTrack() {
         Object[] trackChoice = trackStore.trackFromStore();
         String chosenTrack = (String) JOptionPane.showInputDialog(
                 null,

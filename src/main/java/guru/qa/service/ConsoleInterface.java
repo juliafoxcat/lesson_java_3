@@ -7,7 +7,7 @@ import guru.qa.repo.TrackStore;
 
 import java.util.Scanner;
 
-public class ConsoleInterface {
+public class ConsoleInterface implements Interface{
     private final CarStore carStore;
     private final TrackStore trackStore;
     private final Scanner sc = new Scanner(System.in);
@@ -17,14 +17,14 @@ public class ConsoleInterface {
         this.trackStore = trackStore;
     }
 
-    public Car choiceCarConsole() {
+    public Car choiceCar() {
         System.out.println("Выберите автомобиль:");
         carStore.carList();
         String chosenCar = sc.next();
         return carStore.lookup(chosenCar);
     }
 
-    public Track choiceTrackConsole() {
+    public Track choiceTrack() {
         System.out.println("Выберите трассу:");
         trackStore.trackList();
         String chosenTack = sc.next();
